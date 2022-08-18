@@ -32,11 +32,11 @@ let
 
 when defined local:
   # ローカル開発用
-  const baseUrl = "http://localhost"
+  const baseUrl = "https://websh.sim1222.com"
   const apiUrl = &"{baseUrl}/api/shellgei"
 else:
   # 本番用
-  const baseUrl = "https://websh.jiro4989.com"
+  const baseUrl = "https://websh.sim1222.com"
   const apiUrl = &"{baseUrl}/api/shellgei"
 
 # コンパイル時に値を埋め込む
