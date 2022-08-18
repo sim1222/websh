@@ -11,7 +11,8 @@ services:
     # #204
     # WSL2に移行してから host モードでコンテナを起動するとブラウザからアクセスで
     # きなかったのでコメントアウト
-    # network_mode: "host"
+    network_mode: "host"
+    restart: always
 
   websh_front:
     build: &app-build
@@ -27,6 +28,7 @@ services:
       - -d:local
       - -d:tag:tag
       - -d:revision:rev
+    restart: always
 
   websh_server:
     build: *app-build
@@ -38,6 +40,7 @@ services:
     ports:
       - "5000:5000"
     network_mode: "host"
+    restart: always
 
   websh_remover:
     build: *app-build
@@ -47,3 +50,4 @@ services:
     entrypoint: ./entrypoint.sh
     environment:
       WEBSH_REMOVER_DIR: "/dirs"
+    restart: always
